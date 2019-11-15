@@ -1,0 +1,16 @@
+.main-container {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    display: inline-grid;
+    grid-template-columns: repeat(50, auto);
+    grid-template-rows: repeat(50, auto);
+}
+
+.square {
+    align-items: center;
+    width: 10px;
+    height: 10px;
+}
