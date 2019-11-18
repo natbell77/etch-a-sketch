@@ -2,6 +2,9 @@ console.log('Hey here I am.');
 
 const container = document.querySelector('.container');
 const numCols = 30;
+
+const buttonDock = document.getElementById('button-dock');
+
 const clearButton = document.createElement('button');
 clearButton.textContent = 'Clear the Screen';
 clearButton.classList.add('nav-button');
@@ -27,17 +30,17 @@ function makeBlack(e) {
 
 function clearScreen() {
     console.log('This will clear the screen');
-    squares.forEach((button) => {
-        button.style.backgroundColor = 'white';
-    })
+    const squares = document.querySelectorAll('.square');
+    squares.forEach((square) => {
+        square.remove();
+    });
     drawNewBoxes();
 }
 
 function drawNewBoxes() {
-    newNumCols = parseInt(prompt('How many rows this time?'));
-    squares.forEach((square) => {
-        square.remove();
-    });
+    const newNumCols = parseInt(prompt('How many rows this time?'));
+    container.classList.remove('container');
+    container.classList.add('container');
     drawBoxes(newNumCols);
     window.squares = document.querySelectorAll('.square');
     window.squares.forEach((square) => {
@@ -51,6 +54,6 @@ squares.forEach((square) => {
     square.addEventListener('mouseover', makeBlack);
 });
 
-document.body.appendChild(clearButton);
+buttonDock.appendChild(clearButton);
 
 
